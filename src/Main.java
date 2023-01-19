@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,30 +10,30 @@ public class Main {
         RedVelvet redVelvet = new RedVelvet();
         Chocolate chocolate = new Chocolate();
 
-//        //cupcake
-//        System.out.println("We are in the middle of creating the cupcake menu. We currently have three cupcakes on the menu but we need to decide on pricing.");
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
-//        cupcake.type();
-//        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
-//        String priceText = input.nextLine();
-//        double price = Double.parseDouble(priceText);
-//        cupcake.setPrice(price);
-//        ///redvelvet
-//        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
-//        redVelvet.type();
-//        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
-//        priceText = input.nextLine();
-//        price = Double.parseDouble(priceText);
-//        redVelvet.setPrice(price);
-//
-//        //chocolate
-//        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
-//        chocolate.type();
-//        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
-//        priceText = input.nextLine();
-//        price = Double.parseDouble(priceText);
-//        chocolate.setPrice(price);
+        //cupcake
+        System.out.println("We are in the middle of creating the cupcake menu. We currently have three cupcakes on the menu but we need to decide on pricing.");
+        Scanner input = new Scanner(System.in);
+        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
+        cupcake.type();
+        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
+        String priceText = input.nextLine();
+        double price = Double.parseDouble(priceText);
+        cupcake.setPrice(price);
+        ///redvelvet
+        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
+        redVelvet.type();
+        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        redVelvet.setPrice(price);
+
+        //chocolate
+        System.out.println("We are deciding on the price for our standard cupcake. Here is the description:");
+        chocolate.type();
+        System.out.println("How much would you like to charge for the cupcake? (Input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        chocolate.setPrice(price);
 //
         cupcakeManu.add(cupcake);
         cupcakeManu.add(redVelvet);
@@ -47,27 +48,27 @@ public class Main {
         Soda soda = new Soda();
         Milk milk = new Milk();
 //
-//
-//        System.out.println("We are deciding on the price for our standard Drink. Here is the description:");
-//        drink.type();
-//        System.out.println("How much would you like to charge for the Drink? (Input a numerical number taken to 2 decimal places)");
-//        priceText = input.nextLine();
-//        price = Double.parseDouble(priceText);
-//        drink.setPrice(price);
-//
-//        System.out.println("We are deciding on the price for our standard Soda. Here is the description:");
-//        soda.type();
-//        System.out.println("How much would you like to charge for the Soda? (Input a numerical number taken to 2 decimal places)");
-//        priceText = input.nextLine();
-//        price = Double.parseDouble(priceText);
-//        soda.setPrice(price);
-//
-//        System.out.println("We are deciding on the price for our standard Milk. Here is the description:");
-//        milk.type();
-//        System.out.println("How much would you like to charge for the Milk? (Input a numerical number taken to 2 decimal places)");
-//        priceText = input.nextLine();
-//        price = Double.parseDouble(priceText);
-//        milk.setPrice(price);
+
+        System.out.println("We are deciding on the price for our standard Drink. Here is the description:");
+        drink.type();
+        System.out.println("How much would you like to charge for the Drink? (Input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        drink.setPrice(price);
+
+        System.out.println("We are deciding on the price for our standard Soda. Here is the description:");
+        soda.type();
+        System.out.println("How much would you like to charge for the Soda? (Input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        soda.setPrice(price);
+
+        System.out.println("We are deciding on the price for our standard Milk. Here is the description:");
+        milk.type();
+        System.out.println("How much would you like to charge for the Milk? (Input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        milk.setPrice(price);
 //
         drinkMenu.add(drink);
         drinkMenu.add(soda);
@@ -75,6 +76,15 @@ public class Main {
         Order order = new Order(new ArrayList<>(cupcakeManu), new ArrayList<>(drinkMenu));
         order.takeOder();
 
+        ArrayList<Object> orders = new ArrayList<>();
+        for (int i = 0; i < cupcakeManu.size(); i++) {
+            orders.add(cupcakeManu.get(i));
+        }
+        for (int i = 0; i < drinkMenu.size(); i++) {
+            orders.add(drinkMenu.get(i));
+        }
+        new CreateFile();
+        new WriteToFile(orders);
 
     }
 
