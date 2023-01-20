@@ -25,7 +25,9 @@ public class Order {
                 '}';
     }
 
-    public void takeOder() {
+
+    public List<Object> takeOder() {
+        List<Object> finalOder;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello customer. Would you like to place an order? (Y or N)");
@@ -96,6 +98,7 @@ public class Order {
 
         System.out.println(order);
         System.out.println(order.get(2));
+        finalOder = order;
         double subTotal = 0.0;
         for (int i = 2; i < order.size(); i++) {
             if (order.get(i).equals(cupcakeMenu.get(0))) {
@@ -127,7 +130,7 @@ public class Order {
         }
 
         System.out.println("$" + subTotal + "\n");
-
+        return finalOder;
     }
 }
 

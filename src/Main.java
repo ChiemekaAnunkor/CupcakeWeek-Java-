@@ -74,17 +74,11 @@ public class Main {
         drinkMenu.add(soda);
         drinkMenu.add(milk);
         Order order = new Order(new ArrayList<>(cupcakeManu), new ArrayList<>(drinkMenu));
-        order.takeOder();
+        List<Object> finalOder = order.takeOder();
 
-        ArrayList<Object> orders = new ArrayList<>();
-        for (int i = 0; i < cupcakeManu.size(); i++) {
-            orders.add(cupcakeManu.get(i));
-        }
-        for (int i = 0; i < drinkMenu.size(); i++) {
-            orders.add(drinkMenu.get(i));
-        }
+//
         new CreateFile();
-        new WriteToFile(orders);
+        new WriteToFile((ArrayList<Object>) finalOder);
 
     }
 
